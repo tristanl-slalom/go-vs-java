@@ -1,6 +1,5 @@
 import java.io.*;
 import java.nio.file.*;
-import java.nio.charset.StandardCharsets;
 
 public class IOBenchmark {
     public static void main(String[] args) {
@@ -10,7 +9,7 @@ public class IOBenchmark {
 
         long start = System.currentTimeMillis();
 
-	    // Create the file
+        // Create the file
         FileWriter fileWriter;
         try {
             fileWriter = new FileWriter(filename);
@@ -19,7 +18,7 @@ public class IOBenchmark {
             return;
         }
 
-	    // Buffered writer is much more time-efficient!
+        // Buffered writer is much more time-efficient!
         try (BufferedWriter writer = new BufferedWriter(fileWriter)) {
             for (int i = 0; i < 1000000; i++) {
                 writer.write(content);
